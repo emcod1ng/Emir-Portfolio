@@ -21,7 +21,7 @@ const Contact = () => {
     };
 
     try {
-      const response = await fetch('https://emir-portfolio-1e7r.vercel.app/send-email', {
+      const response = await fetch('https://emir-portfolio-psi.vercel.app/send-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
