@@ -101,7 +101,7 @@ const Contact = () => {
                 rows={5}
                 disabled={isSubmitting}
                 className="w-full bg-bg-secondary border border-border-color/10 rounded-lg px-4 py-3 text-text-primary focus:outline-none focus:border-accent-primary focus:ring-1 focus:ring-accent-primary transition-colors resize-none disabled:opacity-50"
-                placeholder="Hello Asmir, I'd like to talk about..."
+                placeholder="Hello Emir, I'd like to talk about..."
               ></textarea>
             </div>
 
