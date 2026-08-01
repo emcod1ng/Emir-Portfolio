@@ -1,0 +1,13 @@
+{
+  "name": "asmir-portfolio-workspace",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "install:all": "npm install --prefix portfolio && npm install --prefix portfolio-backend && npm install --prefix template-cv",
+    "dev": "concurrently \"npm run dev --prefix portfolio\" \"npm start --prefix portfolio-backend\"",
+    "generate-pdf": "cd template-cv && node generate-pdf.js"
+  },
+  "dependencies": {
+    "concurrently": "^9.0.0"
+  }
+}

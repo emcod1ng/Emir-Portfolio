@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bg-primary: 248 250 252; /* slate-50 (najsvetlija za hero) */
+    --color-bg-secondary: 236 253 245; /* emerald-50 (premium mint zelena za sekcije) */
+    --color-bg-tertiary: 255 255 255; /* white (čisto bela za kartice da bi iskočile) */
+    
+    --color-text-primary: 15 23 42; /* slate-900 (jako crn tekst) */
+    --color-text-secondary: 51 65 85; /* slate-700 */
+    --color-text-muted: 71 85 105; /* slate-600 */
+    
+    --color-border: 15 23 42; /* slate-900 (crna boja ivica koja će se kroz opacity /10 pretvoriti u suptilnu sivu) */
+    
+    --color-accent-primary: 16 185 129; /* emerald-500 */
+    --color-accent-secondary: 4 120 87; /* emerald-700 */
+  }
+
+  .dark {
+    --color-bg-primary: 10 10 10;
+    --color-bg-secondary: 17 17 17;
+    --color-bg-tertiary: 26 26 26;
+    
+    --color-text-primary: 241 245 249; /* slate-100 */
+    --color-text-secondary: 148 163 184; /* slate-400 */
+    --color-text-muted: 71 85 105; /* slate-600 */
+    
+    --color-border: 255 255 255; /* will be used with /10 opacity */
+    
+    --color-accent-primary: 16 185 129;
+    --color-accent-secondary: 4 120 87;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    background-color: rgb(var(--color-bg-primary));
+    color: rgb(var(--color-text-primary));
+    @apply font-sans leading-relaxed overflow-x-hidden transition-colors duration-300;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-bg-primary;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-bg-tertiary rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-accent-secondary;
+  }
+}
+
+@layer components {
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold mb-12 text-center relative inline-block left-1/2 -translate-x-1/2;
+  }
+  
+  .section-title::after {
+    content: '';
+    @apply absolute -bottom-3 left-1/2 -translate-x-1/2 w-3/5 h-1 bg-accent-primary rounded-sm;
+  }
+}

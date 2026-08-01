@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emir Bihorac - Full Stack Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1e293b;
+            /* Slate 800 */
+            --accent: #10b981;
+            /* Emerald 500 - gives a fresh, growth vibe */
+            --text-main: #334155;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
+            --border: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f1f5f9;
+            color: var(--text-main);
+            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .cv-container {
+            background-color: white;
+            width: 100%;
+            max-width: 900px;
+            min-height: 1100px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: row;
+        }
+
+        .sidebar {
+            width: 35%;
+            background-color: var(--primary);
+            color: white;
+            padding: 3rem 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .profile-pic-container {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .profile-pic-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .sidebar-section h2 {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 1rem;
+            color: #cbd5e1;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 0.5rem;
+        }
+
+        .contact-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            font-size: 0.9rem;
+            color: #f1f5f9;
+        }
+
+        .contact-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-list li svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+            opacity: 0.8;
+        }
+
+        .contact-list a {
+            color: #f1f5f9;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .contact-list a:hover {
+            color: var(--accent);
+        }
+
+        .skills-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .skills-group h3 {
+            font-size: 0.9rem;
+            color: #e2e8f0;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .skills-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-pill {
+            background-color: rgba(16, 185, 129, 0.2);
+            color: #a7f3d0;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .edu-item {
+            margin-bottom: 1.2rem;
+        }
+
+        .edu-item h3 {
+            font-size: 1rem;
+            color: white;
+            margin-bottom: 0.2rem;
+        }
+
+        .edu-item p {
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+
+        .lang-item {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            color: #f1f5f9;
+        }
+
+        .main-content {
+            width: 65%;
+            padding: 3rem 2.5rem;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            gap: 2.2rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+            letter-spacing: -0.5px;
+        }
+
+        .header h2 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .main-section h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .main-section h2::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background-color: var(--border);
+        }
+
+        .profile-text {
+            font-size: 0.95rem;
+            color: var(--text-main);
+            text-align: justify;
+        }
+
+        .experience-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .experience-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.3rem;
+        }
+
+        .exp-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .exp-date1 {
+            min-width: 120px;
+        }
+
+        .exp-date {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #047857;
+            background-color: #d1fae5;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+        }
+
+        .exp-company {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-light);
+            margin-bottom: 0.8rem;
+        }
+
+        .exp-details {
+            list-style-type: none;
+        }
+
+        .exp-details li {
+            position: relative;
+            padding-left: 1.2rem;
+            margin-bottom: 0.6rem;
+            font-size: 0.95rem;
+        }
+
+        .exp-details li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .project-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .project-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 0.3rem;
+        }
+
+        .project-title {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .project-tech {
+            font-size: 0.8rem;
+            color: var(--accent);
+            font-weight: 500;
+            border: 1px solid var(--border);
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+        }
+
+        .project-desc {
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-link {
+            font-size: 0.85rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+        @media print {
+            body {
+                padding: 0;
+                background-color: white;
+            }
+
+            .cv-container {
+                box-shadow: none;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cv-container">
+        <aside class="sidebar">
+            <div class="profile-pic-container">
+                <img src="../portfolio/public/profile.jpg">
+            </div>
+            <div class="sidebar-section">
+                <h2>Contact</h2>
+                <ul class="contact-list">
+                    <li><svg viewBox="0 0 24 24">
+                            <path
+                                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                        </svg> Novi Pazar, Serbia</li>
+                    <li><svg viewBox="0 0 24 24">
+                            <path
+                                d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                        </svg> <a href="mailto:asmirpljakic@gmail.com">em.cod1ing00@gmail.com</a></li>
+                    <li><svg viewBox="0 0 24 24">
+                            <path
+                                d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                        </svg> (+381) 62 9661416</li>
+                    <li><svg viewBox="0 0 24 24">
+                            <path
+                                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                        </svg> <a href="https://www.linkedin.com/in/asmir-pljakic-967b00227"
+                            target="_blank">LinkedIn</a></li>
+                    <li><svg viewBox="0 0 24 24">
+                            <path
+                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                        </svg> <a href="https://github.com/emcod1ng" target="_blank">github/emcod1ng</a></li>
+                </ul>
+            </div>
+            <div class="sidebar-section">
+                <h2>Technical Skills</h2>
+                <div class="skills-group">
+                    <h3>Frontend & Mobile</h3>
+                    <div class="skills-pills">
+                        <span class="skill-pill">React</span><span class="skill-pill">React Native</span><span
+                            class="skill-pill">TypeScript</span><span class="skill-pill">JavaScript (ES6+)</span><span
+                            class="skill-pill">Tailwind CSS</span>
+                    </div>
+                </div>
+                <div class="skills-group">
+                    <h3>Backend & Databases</h3>
+                    <div class="skills-pills">
+                        <span class="skill-pill">Node.js</span><span class="skill-pill">Express.js</span><span
+                            class="skill-pill">MongoDB</span><span class="skill-pill">Mongoose</span><span
+                            class="skill-pill">REST APIs</span>
+                    </div>
+                </div>
+                <div class="skills-group">
+                    <h3>Tools</h3>
+                    <div class="skills-pills">
+                        <span class="skill-pill">Git / GitHub</span><span class="skill-pill">Postman</span>
+                    </div>
+                </div>
+            </div>
+            <div class="sidebar-section">
+                <h2>Education</h2>
+                <div class="edu-item">
+                    <h3>Private Programming classes</h3>
+                    <p>ElegantCode (2023 - 2026)</p>
+                </div>
+                <div class="edu-item">
+                    <h3>Natural Sciences and Mathematics Program</h3>
+                    <p>High School Gymnasium (2022 - 2026)</p>
+                </div>
+            </div>
+            <div class="sidebar-section">
+                <h2>Languages</h2>
+                <div class="lang-item"><span>English</span><span>Professional (C1)</span></div>
+                <div class="lang-item"><span>Serbian</span><span>Native</span></div>
+            </div>
+        </aside>
+        <main class="main-content">
+            <header class="header">
+                <h1>Emir Bihorac</h1>
+                <h2>Full Stack Developer</h2>
+            </header>
+            <section class="main-section">
+                <h2>Professional Profile</h2>
+                <p class="profile-text">
+                    Highly motivated and detail-oriented Full Stack Developer with a strong foundation in the
+                    MERN stack (MongoDB, Express, React, Node.js) and React Native. Passionate about writing clean,
+                    maintainable code in TypeScript and JavaScript, and eager to build responsive, user-centric
+                    applications. A quick learner and strong team player, actively seeking to contribute to a
+                    collaborative engineering team while continuing to grow and adopt industry best practices.
+                </p>
+            </section>
+
+            <section class="main-section">
+                <h2>Work Experience</h2>
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <h3 class="exp-title">Software Engineering & Code Architecture</h3>
+                        <span class="exp-date exp-date1">2026 - Present</span>
+                    </div>
+                    <div class="exp-company">Elegant Code</div>
+                    <ul class="exp-details">
+                        <li>Data Manipulation: Expertise in working with objects and arrays (algorithmic optimization
+                            through methods like map, filter, reduce, sort, every, some).</li>
+                        <li>Flow Control & Optimization: Efficient asynchronous programming (Promises, Then/Catch,
+                            Try/Catch), code refactoring for improved performance, and project structure management
+                            utilizing Monorepo architecture.</li>
+                        <li>Local Storage: Client-side data management using LocalStorage mechanisms.</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <h3 class="exp-title">Full Stack Developer</h3>
+                        <span class="exp-date">2024 - 2026</span>
+                    </div>
+                    <div class="exp-company">@skolaprogramiranja.rs</div>
+                    <ul class="exp-details">
+                        <li>End-to-end development of cross-platform mobile applications. Seamless integration of the
+                            mobile client with custom Node.js/Express backends, ensuring high performance and smooth
+                            data synchronization.</li>
+                        <li>Node.js & Express: Designing and developing robust RESTful APIs. Implementing modular
+                            architecture through clearly defined routing, Controllers, and custom Middleware functions
+                            (including pagination, authentication, and validation).</li>
+                        <li>Databases (MongoDB & Mongoose): Database schema design (Models). Executing advanced CRUD
+                            operations, query optimization, and working with complex search and update methods (e.g.,
+                            find, findOne, findOneAndUpdate).</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="exp-header">
+                        <h3 class="exp-title">Frontend Development & UI/UX</h3>
+                        <span class="exp-date">2023 - 2024</span>
+                    </div>
+                    <div class="exp-company">@skolaprogramiranja.rs</div>
+                    <ul class="exp-details">
+                        <li>React Ecosystem: Building complex Single-Page Applications using React (Hooks, custom
+                            components, Context API). Global state management using Redux Toolkit and re-render
+                            optimization.</li>
+                        <li>Languages: Deep understanding of modern JavaScript (ES6+ standards, asynchronous
+                            programming, destructuring) and transition to strictly typed code using TypeScript (TS/TSX)
+                            for enhanced stability and scalability.</li>
+                        <li>Structure & Design: Thorough understanding of HTML5 semantics and structure. Advanced layout
+                            control via CSS (Flexbox, CSS Grid, Absolute/Relative/Fixed positioning). Rapid and
+                            responsive development using Tailwind CSS and Bootstrap, enriched with fluid animations via
+                            the Framer Motion library and icon integration (FontAwesome).</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="main-section">
+                <h2>Notable Projects</h2>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <h3 class="project-title">Shop-IT v2 (E-Commerce)</h3>
+                        <span class="project-tech">React, Redux, Node.js, MongoDB</span>
+                    </div>
+                    <p class="project-desc">A modern, full-stack web shop built with React and Redux Toolkit. Features
+                        an intuitive interface, secure transactions, product filtering, and a custom backend REST API.
+                    </p>
+                    <a href="https://github.com/emcod1ng/HomeDetailsCss" class="project-link" target="_blank">View
+                        Source Code ➔</a>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <h3 class="project-title">JobHub Platform</h3>
+                        <span class="project-tech">React, Node.js, REST API</span>
+                    </div>
+                    <p class="project-desc">An innovative application designed to connect job seekers with employment
+                        opportunities, featuring advanced search and a responsive, fast user interface.</p>
+                    <a href="https://github.com/emcod1ng/RecentFoldersProjectCss" class="project-link"
+                        target="_blank">View Source
+                        Code ➔</a>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <h3 class="project-title">React Native Shop</h3>
+                        <span class="project-tech">React Native, TypeScript</span>
+                    </div>
+                    <p class="project-desc">A cross-platform mobile e-commerce application focusing on smooth
+                        animations, strong typing with TypeScript, and a mobile-first user experience.</p>
+                    <a href="https://github.com/emcod1ng/Billing-profile-css" class="project-link" target="_blank">View
+                        Source Code ➔</a>
+                </div>
+            </section>
+
+        </main>
+    </div>
+</body>
+
+</html>
