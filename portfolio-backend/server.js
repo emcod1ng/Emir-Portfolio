@@ -81,6 +81,10 @@ app.post('/send-email', async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`Backend server pokrenut na portu ${PORT}`);
-});
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`Backend server pokrenut na portu ${PORT}`);
+  });
+}
+
+module.exports = app;
